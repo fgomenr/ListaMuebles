@@ -15,7 +15,7 @@ public class Mueble {
     private String marca;
     private String tienda;
     private String color;
-    private int tamaño;
+    private int tamanyo;
     private float precio;
     private String fechaFabricacion;
     
@@ -45,11 +45,11 @@ public class Mueble {
         this.color=color;
     }
     
-    public int getTamaño(){
-        return this.tamaño;
+    public int getTamanyo(){
+        return this.tamanyo;
     }
-    public void setTamaño(int tamaño){
-        this.tamaño=tamaño;
+    public void setTamanyo(int tamanyo){
+        this.tamanyo=tamanyo;
     }
     
     
@@ -74,6 +74,11 @@ public class Mueble {
         String r = "";
         r += "Modelo: " + modelo + "\n";
         r += "Marca: " +  marca + "\n";
+        r += "Tienda: " +tienda+ "\n";
+        r += "Color: " +color+ "\n";
+        r += "Tamaño: " +tamanyo+ "\n";
+        r += "Precio: " +precio+ "\n";
+        r += "Fecha de Fabricacion: " +fechaFabricacion+ "\n";
         return r;
     }
 }
