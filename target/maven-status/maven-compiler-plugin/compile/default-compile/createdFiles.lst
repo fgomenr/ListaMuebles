@@ -1,4 +1,9 @@
+es\felixgomezenriquez\listamuebles\LayoutCenter.class
+es\felixgomezenriquez\listamuebles\LayoutBottom.class
+es\felixgomezenriquez\listamuebles\LayoutLeft.class
 es\felixgomezenriquez\listamuebles\App.class
 module-info.class
+es\felixgomezenriquez\listamuebles\LayoutRight.class
+es\felixgomezenriquez\listamuebles\Muebles.class
 es\felixgomezenriquez\listamuebles\UtilXML.class
 es\felixgomezenriquez\listamuebles\Mueble.class

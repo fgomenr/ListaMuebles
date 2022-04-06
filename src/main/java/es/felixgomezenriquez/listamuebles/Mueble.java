@@ -5,6 +5,11 @@
  */
 package es.felixgomezenriquez.listamuebles;
 
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import static java.time.temporal.TemporalQueries.localDate;
+
 /**
  *
  * @author usuario
@@ -17,8 +22,7 @@ public class Mueble {
     private String color;
     private int tamanyo;
     private float precio;
-    private String fechaFabricacion;
-    
+    private LocalDate fecha;
     
     public String getModelo(){
         return this.modelo;
@@ -62,23 +66,30 @@ public class Mueble {
     
     
     public String getFechaFabricacion(){
-        return this.fechaFabricacion;
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String fechaFormateada = this.fecha.format(formatter);
+
+        return fechaFormateada;
+
     }
-    public void setFechaFabricacion(String fechaFabricacion){
-        this.fechaFabricacion=fechaFabricacion;
+    public void setFechaFabricacion(int año, int mes, int dia) throws ParseException{
+        this.fecha= this.fecha.of(año, mes, dia);
+        
+
     }
     
     
      @Override
     public String toString() {
         String r = "";
-        r += "Modelo: " + modelo + "\n";
-        r += "Marca: " +  marca + "\n";
-        r += "Tienda: " +tienda+ "\n";
-        r += "Color: " +color+ "\n";
-        r += "Tamaño: " +tamanyo+ "\n";
-        r += "Precio: " +precio+ "\n";
-        r += "Fecha de Fabricacion: " +fechaFabricacion+ "\n";
+        r += "Modelo: " + this.getModelo() + "\n";
+        r += "Marca: " + this.getMarca() + "\n";
+        r += "Tienda: " +this.getTienda()+ "\n";
+        r += "Color: " +this.getColor()+ "\n";
+        r += "Tamaño: " +this.getTamanyo()+ "\n";
+        r += "Precio: " +this.getPrecio()+ "\n";
+        r += "Fecha de Fabricacion: " +this.getFechaFabricacion()+ "\n";
         return r;
     }
 }

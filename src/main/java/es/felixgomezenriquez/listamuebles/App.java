@@ -1,13 +1,9 @@
 package es.felixgomezenriquez.listamuebles;
 
+import java.text.ParseException;
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
@@ -15,9 +11,11 @@ import javafx.stage.Stage;
  * JavaFX App
  */
 public class App extends Application {
+    
+    int muebleActual=0;
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws ParseException {
         
         BorderPane root = new BorderPane();
         
@@ -47,18 +45,28 @@ public class App extends Application {
         
         /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
         
+    
+        
         
          Mueble mueble0= new Mueble();
-        mueble0.setModelo("Dacia");
-        mueble0.setMarca("ALK");
-        mueble0.setTienda("Ikea");
-        mueble0.setColor("rojo");
+        mueble0.setModelo("Mueble cama - MC 90");
+        mueble0.setMarca("ES Interiorismo");
+        mueble0.setTienda("Muebleslluesma");
+        mueble0.setColor("Aire-Turquesa");
         mueble0.setTamanyo(200);
-        mueble0.setPrecio(2);
-        mueble0.setFechaFabricacion("1998");
-
-        Mueble mueble2 = new Mueble();
+        mueble0.setPrecio((float)468.12);
+        mueble0.setFechaFabricacion(2020,2,3);
+        mueble0.getFechaFabricacion();
         
+        Mueble mueble2 = new Mueble();
+        mueble2.setModelo("Mueble dsddsdsds - MC 90");
+        mueble2.setMarca("ES Interiorismo");
+        mueble2.setTienda("Muebleslluesma");
+        mueble2.setColor("Aire-Turquesa");
+        mueble2.setTamanyo(200);
+        mueble2.setPrecio((float)468.12);
+        mueble2.setFechaFabricacion(2020,2,3);
+        mueble2.getFechaFabricacion();
         
         
         listaMuebles.getListaMuebles().add(mueble0);
@@ -66,15 +74,10 @@ public class App extends Application {
         
         
         /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        muebleActual=0;
+        layoutCenter.actualizarTexto(listaMuebles.getListaMuebles().get(muebleActual),muebleActual);
+        System.out.println(listaMuebles.getListaMuebles().size());
+
         
         layoutBottom.botonGuardar.setOnAction((t) -> {
             UtilXML.guardarArchivo(stage, listaMuebles);
@@ -85,7 +88,7 @@ public class App extends Application {
             System.out.println("Numero de muebles nuevos: "+ listaMueblesImport.getListaMuebles().size());
             
             listaMuebles.unirMuebles(listaMueblesImport);
-            //Muebles.unirMuebles(listaMuebles, listaMueblesImport);
+            Muebles.unirMuebles(listaMuebles, listaMueblesImport);
             System.out.println("Mostrando cada elemento de la lista unida");
             for (int i = 0; i < listaMuebles.getListaMuebles().size(); i++) {
                 System.out.println(listaMuebles.getListaMuebles().get(i));
@@ -94,8 +97,31 @@ public class App extends Application {
         });
         
         layoutLeft.botonAnterior.setOnAction((t) -> {
+            try {
+                muebleActual--;
+                layoutCenter.actualizarTexto(listaMuebles.getListaMuebles().get(muebleActual),muebleActual);
+               
+            } catch (Exception e) {
+                e.printStackTrace();
+                //alert
+                muebleActual=0;
+            }
             
-            layoutCenter.actualizarTexto(listaMuebles.getListaMuebles().get(0));
+            
+        });
+        
+        layoutRight.botonSiguiente.setOnAction((t) -> {
+            try {
+               muebleActual++;
+               layoutCenter.actualizarTexto(listaMuebles.getListaMuebles().get(muebleActual),muebleActual);
+               
+            } catch (Exception e) {
+                e.printStackTrace();
+                //alert
+                muebleActual= listaMuebles.getListaMuebles().size() - 1;
+                System.out.println(listaMuebles.getListaMuebles().size());
+            }
+            
             
         });
         
