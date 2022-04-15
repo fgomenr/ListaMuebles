@@ -34,6 +34,7 @@ public class UtilXML {
             marshaller.marshal(listaMuebles, fileListaMuebles);
         } catch (JAXBException ex) {
             System.out.println("Se ha producido un error");
+            //alert no se ha podido guardar
             ex.printStackTrace();
         }            
     
@@ -69,6 +70,7 @@ public class UtilXML {
             
         } catch (JAXBException ex) {
             System.out.println("Se ha producido un error");
+            //alert no se ha podido abrir 
             ex.printStackTrace();
             return null;
         }            

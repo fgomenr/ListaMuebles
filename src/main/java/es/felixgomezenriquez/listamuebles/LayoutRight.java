@@ -5,9 +5,14 @@
  */
 package es.felixgomezenriquez.listamuebles;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 
 /**
  *
@@ -23,6 +28,9 @@ public class LayoutRight extends HBox{
         this.setAlignment(Pos.CENTER);        
         this.setMinWidth(100);
         this.setMaxWidth(150);
+        this.setBackground(new Background(
+                   new BackgroundFill(Color.CYAN, CornerRadii.EMPTY, new Insets(5, 5, 5, 5))));     
+
     }
     
 }

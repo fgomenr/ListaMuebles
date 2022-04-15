@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Muebles {
     
-    static private ArrayList<Mueble> listaMuebles = new ArrayList();
+     private ArrayList<Mueble> listaMuebles = new ArrayList();
     
     public ArrayList<Mueble> getListaMuebles() {
         return listaMuebles;
@@ -30,7 +30,8 @@ public class Muebles {
     public ArrayList<Mueble> unirMuebles (Muebles listaMueblesNueva){
         //Se pueden unir de varias formas, usando un bucle for para ir añadiendo cada
         //mueble de la lista nueva a la original
-        for (int i = 0; i < listaMueblesNueva.getListaMuebles().size(); i++) {
+        int numeroMueblesNuevos=listaMueblesNueva.getListaMuebles().size();
+        for (int i = 0; i < numeroMueblesNuevos; i++) {
             this.listaMuebles.add(listaMueblesNueva.getListaMuebles().get(i));
         }
         //Tambien se puede unir directamente con el metodo addAll que pide como parametro una coleccion de objetos
@@ -44,7 +45,8 @@ public class Muebles {
     static public ArrayList<Mueble> unirMuebles (Muebles listamueblesOrigen, Muebles listaMueblesNueva){
         //Se pueden unir de varias formas, usando un bucle for para ir añadiendo cada
         //mueble de la lista nueva a la original
-        for (int i = 0; i < listaMueblesNueva.getListaMuebles().size(); i++) {
+        int numeroMueblesNuevos=listaMueblesNueva.getListaMuebles().size();
+        for (int i = 0; i < numeroMueblesNuevos; i++) {
             listamueblesOrigen.getListaMuebles().add(listaMueblesNueva.getListaMuebles().get(i));
         }
         //Tambien se puede unir directamente con el metodo addAll que pide como parametro una coleccion de objetos
