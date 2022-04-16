@@ -4,6 +4,8 @@ import java.text.ParseException;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
@@ -20,14 +22,19 @@ import javafx.stage.Stage;
 public class App extends Application {
     
     int muebleActual=0;
+    
+    
 
+ 
+        
     @Override
     public void start(Stage stage) throws ParseException {
         
+ 
         BorderPane root = new BorderPane();
         
         root.setBackground(new Background(
-                new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, new Insets(0, 0, 0, 0))));
+                new BackgroundFill(Color.rgb(131, 71, 51), CornerRadii.EMPTY, new Insets(0, 0, 0, 0))));
         
         var scene = new Scene(root, 640, 480);
         stage.setScene(scene);
@@ -50,18 +57,6 @@ public class App extends Application {
         root.setRight(layoutRight);
         root.setLeft(layoutLeft);
         
-        
-//        Mueble mueble2 = new Mueble();
-//        mueble2.setModelo("Mueble dsddsdsds - MC 90");
-//        mueble2.setMarca("ES Interiorismo");
-//        mueble2.setTienda("Muebleslluesma");
-//        mueble2.setColor("Aire-Turquesa");
-//        mueble2.setTamanyo(200);
-//        mueble2.setPrecio((float)468.12);
-//        mueble2.setFechaFabricacion("02-02-2000");
-//        mueble2.setUrl("www.google.com");
-//        listaMuebles.getListaMuebles().add(mueble2);
-
         try {
             
             layoutCenter.actualizarTexto(listaMuebles.getListaMuebles().get(muebleActual));
@@ -69,7 +64,10 @@ public class App extends Application {
             
         } catch (Exception e) {
             e.printStackTrace();
-            //alert "añade un XML valido para visionar"
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Añade un XML valido");
+            alert.setHeaderText("Añade un XML con el boton abrir, para visionar su contenido.");
+            alert.showAndWait();
         }
  
 
@@ -91,6 +89,8 @@ public class App extends Application {
                 System.out.println(listaMuebles.getListaMuebles().get(i));
             }
             
+        layoutCenter.actualizarTexto(listaMuebles.getListaMuebles().get(muebleActual));
+
         });
         
         layoutLeft.botonAnterior.setOnAction((t) -> {
@@ -100,7 +100,10 @@ public class App extends Application {
                
             } catch (Exception e) {
                 e.printStackTrace();
-                //alert se ha excedido el numero de muebles 
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("CUIDADO!!");
+                alert.setHeaderText("Se ha excedido el numero de muebles");
+                alert.showAndWait();
                 muebleActual=0;
             }
             
@@ -114,7 +117,10 @@ public class App extends Application {
                
             } catch (Exception e) {
                 e.printStackTrace();
-                //alert se ha excedido el numero de muebles 
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("CUIDADO!!");
+                alert.setHeaderText("Se ha excedido el numero de muebles");
+                alert.showAndWait();
                 muebleActual= listaMuebles.getListaMuebles().size() - 1;
                 System.out.println(listaMuebles.getListaMuebles().size());
             }
@@ -127,10 +133,9 @@ public class App extends Application {
                 WebView view = new WebView();
                 view.getEngine().load(listaMuebles.getListaMuebles().get(muebleActual).getUrl());
                 
-                //Cambiar tamaño de la pantalla nueva pra que quede guay
                 Pane p =new Pane();
                 Stage s = new Stage();
-                Scene sc = new Scene(p);
+                Scene sc = new Scene(p,800, 600);
                 
                 s.setScene(sc);
                 s.show();
@@ -139,7 +144,10 @@ public class App extends Application {
                 
             } catch (Exception e) {
                 e.printStackTrace();
-                //alert no tiene enlace de compra
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("CUIDADO!!");
+                alert.setHeaderText("El articulo seleccionado no tiene un URL valido");
+                alert.showAndWait();
             }
             
         });

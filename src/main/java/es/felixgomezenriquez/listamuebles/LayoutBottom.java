@@ -36,7 +36,7 @@ public class LayoutBottom extends VBox {
         this.setMargin(botonAbrir, new Insets(5, 0, 5, 0));
         this.setMargin(botonGuardar, new Insets(5, 0, 10, 0));
         this.setBackground(new Background(
-                new BackgroundFill(Color.CYAN, CornerRadii.EMPTY, new Insets(5, 5, 5, 5))));
+                new BackgroundFill(Color.rgb(189, 160, 131), CornerRadii.EMPTY, new Insets(5, 5, 5, 5))));
         
         
     }

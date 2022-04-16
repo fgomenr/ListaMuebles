@@ -29,7 +29,7 @@ public class LayoutRight extends HBox{
         this.setMinWidth(100);
         this.setMaxWidth(150);
         this.setBackground(new Background(
-                   new BackgroundFill(Color.CYAN, CornerRadii.EMPTY, new Insets(5, 5, 5, 5))));     
+                   new BackgroundFill(Color.rgb(189, 160, 131), CornerRadii.EMPTY, new Insets(5, 5, 5, 5))));     
 
     }
     

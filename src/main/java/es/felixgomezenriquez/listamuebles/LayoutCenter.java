@@ -36,7 +36,7 @@ public class LayoutCenter extends VBox{
             lb[i].setWrapText(true);
             lb[i].setPadding(new Insets(5));
             lb[i].setBackground(new Background(
-                new BackgroundFill(Color.BURLYWOOD, cornerradi, Insets.EMPTY)));
+                new BackgroundFill(Color.rgb(208, 185, 162), cornerradi, Insets.EMPTY)));
             lb[i].setText("Mensaje predeterminado");
             labels.getChildren().add(lb[i]);
             labels.setMargin(lb[i], new Insets(2, 2, 2, 2));
@@ -45,11 +45,7 @@ public class LayoutCenter extends VBox{
                
        
        VBox botonCompra= new VBox();
-       
 
-       //botonCompra.setBackground(new Background(
-         //       new BackgroundFill(Color.BURLYWOOD, cornerradi, Insets.EMPTY)));
-       
        botonCompra.setAlignment(Pos.BOTTOM_CENTER);
 
        botonCompra.getChildren().add(comprar);
@@ -60,7 +56,7 @@ public class LayoutCenter extends VBox{
        
        
        this.setBackground(new Background(
-                new BackgroundFill(Color.CYAN, CornerRadii.EMPTY, new Insets(5, 5, 5, 5))));
+                new BackgroundFill(Color.rgb(189, 160, 131), CornerRadii.EMPTY, new Insets(5, 5, 5, 5))));
        this.getChildren().addAll(labels,botonCompra);
 
 

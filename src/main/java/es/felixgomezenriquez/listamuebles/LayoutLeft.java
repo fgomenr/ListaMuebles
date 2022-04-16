@@ -30,7 +30,7 @@ public class LayoutLeft extends HBox {
         this.getChildren().addAll(botonAnterior);
         this.setAlignment(Pos.CENTER);
         this.setBackground(new Background(
-                new BackgroundFill(Color.CYAN, CornerRadii.EMPTY, new Insets(5, 5, 5, 5))));
+                new BackgroundFill(Color.rgb(189, 160, 131), CornerRadii.EMPTY, new Insets(5, 5, 5, 5))));
     }
     
     
