@@ -19,13 +19,18 @@ import javafx.scene.paint.Color;
  *
  * @author usuario
  */
-public class LayoutBottom extends VBox {
-    Button botonGuardar = new Button("Guardar");
 
-    Button botonAbrir = new Button("Abrir");
+//Esta clase tiene todo lo que contiene el layout de abajo 
+
+public class LayoutBottom extends VBox {
+     Button botonGuardar = new Button("Guardar");
+
+     Button botonAbrir = new Button("Abrir");
 
     
 
+    //Añado los botones al layout y le doy un fondo al layout con unos insets 
+     //para conseguir el efecto deseado
     public LayoutBottom (){
         
         

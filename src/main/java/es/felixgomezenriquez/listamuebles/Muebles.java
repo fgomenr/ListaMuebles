@@ -13,19 +13,24 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author usuario
  */
+//Esta clase guarda la informacion en lo referente a trabajar con la lista de muebles.
 @XmlRootElement
 public class Muebles {
     
      private ArrayList<Mueble> listaMuebles = new ArrayList();
     
+    //Este metodo te devuelve el arraylist de la listamuebles, creado anteriormente 
     public ArrayList<Mueble> getListaMuebles() {
         return listaMuebles;
     }
+    //Este metodo asigna la listaMuebles pasada por parametro a la listaMuebles del objeto
     
     @XmlElement(name = "mueble")
     public void setListaMuebles(ArrayList<Mueble> listaMuebles) {
         this.listaMuebles = listaMuebles;
     }
+    
+    //Este metodo une las 2 listas, la que ya habia mas la añadida del XML
     
     public ArrayList<Mueble> unirMuebles (Muebles listaMueblesNueva){
         //Se pueden unir de varias formas, usando un bucle for para ir añadiendo cada

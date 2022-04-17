@@ -18,10 +18,16 @@ import javafx.scene.paint.Color;
  *
  * @author usuario
  */
+
+//Esta clase tiene todo lo que contiene el layout de la derecha
+
 public class LayoutRight extends HBox{
     
     Button botonSiguiente = new Button("Siguiente");
         
+    
+    //Añado los botones al layout y le doy un fondo al layout con unos insets 
+     //para conseguir el efecto deseado
      public LayoutRight(){
         
         this.getChildren().addAll(botonSiguiente);

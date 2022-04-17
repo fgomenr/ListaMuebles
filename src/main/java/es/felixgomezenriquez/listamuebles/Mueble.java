@@ -13,8 +13,11 @@ import java.time.format.DateTimeFormatter;
  *
  * @author usuario
  */
+//Esta clase contiene toda la informacion de un Mueble
+
 public class Mueble {
     
+    //inicializacion de los datos de un mueble
     private String modelo;
     private String marca;
     private String tienda;
@@ -24,6 +27,8 @@ public class Mueble {
     private String fecha;
     private String url;
     //private LocalDate fecha;
+    
+    //Metodos para acceder y modificar los datos anteriormente creados, ya que son de ambito privado
     
     public String getModelo(){
         return this.modelo;
@@ -113,6 +118,8 @@ public class Mueble {
         this.url=url;
     }
     
+    //Metodo que convierte toda la informacion de un mueble a String para poder mostrarlo 
+    //por consola correctamente
      @Override
     public String toString() {
         String r = "";
